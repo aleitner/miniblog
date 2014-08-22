@@ -1,0 +1,17 @@
+<h1>Dashboard</h1>
+<center><%= will_paginate @blogposts %></center><br />
+<%@blogposts.each do |blogpost|%>
+<table class="table table-hover table-condensed">
+	<td><b><%=blogpost.user.user_name%></b><br>
+	<%=blogpost.content%><br>
+	<font size = 1><a href=/dashboard/main/?blogpost_id=<%=blogpost.id%>>Comment (<%="#{blogpost.comment_count}"%>)</a>
+	<% if current_user.id == blogpost.user_id%>
+		<%= link_to 'Edit', edit_blogpost_path(blogpost) %> | <%=blogpost.created_at%>
+	<%else%>
+		<%=blogpost.created_at%>
+	<%end%>
+
+</font></td>
+</table>
+<%end%>
+<center><%= will_paginate @blogposts %></center>

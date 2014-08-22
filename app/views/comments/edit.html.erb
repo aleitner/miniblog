@@ -1,0 +1,7 @@
+<h1>Editing comment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @comment %> |
+<a href="/dashboard/main/?blogpost_id=<%=@blogpost_id%>">Back</a> |
+<%= link_to 'Destroy', @comment, method: :delete, data: { confirm: 'Are you sure?' } %>
